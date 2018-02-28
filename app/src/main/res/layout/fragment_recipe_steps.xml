@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.recipesapp.fragments.RecipeStepsFragment">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/ingred_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/app_margin"
+                android:gravity="center"
+                android:text="@string/ingredients"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/text_size_large"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/ingred_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ingred_tv"
+                android:layout_margin="@dimen/app_margin" />
+
+
+            <TextView
+                android:id="@+id/stps_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ingred_rv"
+                android:layout_margin="@dimen/app_margin"
+                android:gravity="center"
+                android:text="@string/steps"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/text_size_large"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/stps_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/stps_tv"
+                android:layout_margin="@dimen/app_margin" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>
