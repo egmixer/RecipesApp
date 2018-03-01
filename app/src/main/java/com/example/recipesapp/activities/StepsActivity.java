@@ -28,6 +28,9 @@ public class StepsActivity extends AppCompatActivity implements RecipeStepsFragm
         setContentView(R.layout.activity_steps);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
         if (getIntent() != null) {
             recipeResponse = getIntent().getParcelableExtra(RECIPE_KEY);
         }

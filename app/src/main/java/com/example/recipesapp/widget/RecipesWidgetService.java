@@ -10,6 +10,7 @@ import android.widget.RemoteViewsService;
 
 import com.example.recipesapp.R;
 import com.example.recipesapp.webservice.WebService;
+import com.example.recipesapp.webservice.models.Ingredient;
 import com.example.recipesapp.webservice.models.RecipeResponse;
 
 import java.util.ArrayList;
@@ -85,6 +86,17 @@ public class RecipesWidgetService extends RemoteViewsService {
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.item_recipe_widget);
             String recipeTitle = recipeResponse.getName();
             views.setTextViewText(R.id.recipe_title_tv, recipeTitle);
+            StringBuilder stepDetails = new StringBuilder();
+            for (Ingredient ingredient : recipeResponse.getIngredients()) {
+                stepDetails.append(" * ");
+                stepDetails.append(ingredient.getQuantity());
+                stepDetails.append(" ");
+                stepDetails.append(ingredient.getMeasure());
+                stepDetails.append(" - ");
+                stepDetails.append(ingredient.getIngredient());
+                stepDetails.append("\n");
+            }
+            views.setTextViewText(R.id.recipe_details_tv,stepDetails );
             Bundle extras = new Bundle();
             extras.putParcelable("recipe", recipeResponse);
             Intent intent = new Intent();

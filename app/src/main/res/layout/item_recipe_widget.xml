@@ -14,5 +14,14 @@
         android:textColor="@color/white"
         android:textSize="@dimen/ingredient_text_size" />
 
+    <TextView
+        android:id="@+id/recipe_details_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/app_margin"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size" />
+
 
 </LinearLayout>

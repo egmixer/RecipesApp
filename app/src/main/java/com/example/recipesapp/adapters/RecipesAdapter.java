@@ -5,10 +5,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.recipesapp.R;
 import com.example.recipesapp.webservice.models.RecipeResponse;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -39,6 +41,9 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.MyViewHo
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.recipeTitle.setText(contentList.get(position).getName());
+        if (!contentList.get(position).getImage().equals(""))
+            Picasso.with(context).load(contentList.get(position).getImage()).into(holder.recipeImage);
+
     }
 
     @Override
@@ -54,7 +59,8 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.MyViewHo
     public class MyViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.recipe_tv)
         TextView recipeTitle;
-
+        @BindView(R.id.recipe_iv)
+        ImageView recipeImage;
         public MyViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
